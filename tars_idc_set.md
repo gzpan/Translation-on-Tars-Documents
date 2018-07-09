@@ -1,4 +1,4 @@
-# table of Contents
+# Table of Contents
 > * [Introduction to IDC Grouping Logic] (#main-chapter-1)
 > * [Set grouping logic introduction] (#main-chapter-2)
 > * [Invocation rules for IDC group and Set group] (#main-chapter-3)
