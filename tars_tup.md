@@ -126,7 +126,7 @@ Description:
 
 > * The first defined enumeration type value is 0, where E1 is 0;
 
-> * Enumeration type After the tars file is defined, after tars2cpp is generated, in addition to generating the corresponding enum definition, the etos and stoe functions are generated, the enumeration value is converted into a string, and the string is converted into an enumeration. Values ​​are very handy when debugging code.
+> * For Enumeration type, after the tars file is defined and generated through tars2cpp, we will not only get the corresponding enum definition but also the etos and stoe functions which convert enumeration value to string or convert string to enumeration value, respectively. It is convenient when debugging code.
 
 > * It is recommended that in the C++ tars file, all interfaces are returned as int, and the return value is defined in the tars file as an enumeration.
 
