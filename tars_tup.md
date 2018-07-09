@@ -83,29 +83,29 @@ All identifiers cannot have the 'tars_' symbol and must start with a letter and 
 
 The basic types of support include the following:
 
-void :can only be represented in the return value of the function
+void : can only be represented in the return value of the function
 
-bool :boolean type, mapped to tars::Bool
+bool : boolean type, mapped to tars::Bool
 
-byte :signed characters, mapped to tars::Char
+byte : signed characters, mapped to tars::Char
 
-short :signed short integer, mapped to tars::Short
+short : signed short integer, mapped to tars::Short
 
-int :signed integer, mapped to tars::Int32
+int : signed integer, mapped to tars::Int32
 
-long :signed long integer, mapped to tars::Int64
+long : signed long integer, mapped to tars::Int64
 
-float :Map to tars::Float
+float : Map to tars::Float
 
-double :Map to tars::Double
+double : Map to tars::Double
 
-string :Map to std::string, java:String
+string : Map to std::string, java:String
 
-unsigned byte :unsigned character, c++ mapped to unsigend char other versions tars::Short
+unsigned byte : unsigned character, c++ mapped to unsigend char other versions tars::Short
 
-unsigned short :unsigned short integer c++ mapped to unsigned short other versions tars::Int32
+unsigned short : unsigned short integer c++ mapped to unsigned short other versions tars::Int32
 
-unsigned int :unsigned integer c++ mapped to unsigned int other versions tars::Int64
+unsigned int : unsigned integer c++ mapped to unsigned int other versions tars::Int64
 
 ## 2.4. Complex types
 
