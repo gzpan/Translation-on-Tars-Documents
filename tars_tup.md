@@ -204,9 +204,9 @@ map<int, string> m;
 ```
 Description:
 
-> * For struct, usually can not be used as the map key, so the struct has no size comparison symbol;
+> * Struct usually can not be used as the map key because it does not support '<' operation;
 
-> * If the struct can be used as the map key, you need to use less to define the comparison order of the members in the struct;
+> * If the struct can be used as the map key, you need to use key(defined in 2.4.3) to define the comparison order of the members in the struct;
 
 ### 2.4.6. Array
 
