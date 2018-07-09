@@ -222,7 +222,7 @@ Description:
 
 > * Array types will be translated to vector<type> in non-c++ versions
 
-> * byte m[5] is equivalent to defining vector&lt;byte&gt;:5
+> * byte m[5] is equivalent to defining vector&lt;byte&gt; m(5)
 
 ### 2.4.7 Pointer
 
