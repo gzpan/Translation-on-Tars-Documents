@@ -168,7 +168,7 @@ Description:
 
 Key description:
 
-> * indicates that the structure is smaller than the comparison symbol. By default, Struct is not less than the operation. If the key is defined, it is less than the comparison character.
+> * Indicates the '<' symbol. By default, Struct does not support the '<' operation. If the key is defined, it will generate '<' symbol.
 
 Key details:
 
@@ -176,11 +176,11 @@ Key details:
 
 > * Struct: indicates the name of the structure
 
-> * Member: indicates that the member variable of the structure can have more than one;
+> * Member: indicates the member variable of the structure and more than one variable is allowed;
 
-> * The generated comparison operator is less than the comparison operator, and the priority is compared according to the order defined by the member variables in the key.
+> * Implement the comparison between Structs according to the order defined by the member variables in the key.
 
-> * After generating less than the comparison operator, the structure can be used as the map key;
+> * After generating '<' operator, the structure can be used as the key of map;
 
 other instructions:
 
