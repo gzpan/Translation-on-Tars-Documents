@@ -13,25 +13,25 @@ TUP (short for Tars Uni-Protocol), the Tars unified protocol, is a package based
 
 ## 1.2. What can TUP do?
 
-1. Support java, c++ and other languages
+1.Support java, c++ and other languages
 
-2. Support for serialization and deserialization of objects
+2.Support for serialization and deserialization of objects
 
-3. Support protocol dynamic expansion
+3.Support protocol dynamic expansion
 
-4. Provide put/get generic interface to quickly implement client/server codec
+4.Provide put/get generic interface to quickly implement client/server codec
 
-5. Serialized data can be used for network transmission or persistent storage
+5.Serialized data can be used for network transmission or persistent storage
 
-6. Support the server that directly calls Tars
+6.Support the server that directly calls Tars
 
 ## 1.3. What can't TUP do?
 
-1. Only protocol encapsulation, no network layer
+1.Only protocol encapsulation, no network layer
 
-2. Data compression is not supported (can be processed at the business layer)
+2.Data compression is not supported (can be processed at the business layer)
 
-3. Does not support encryption protocol (can be processed at the business layer)
+3.Does not support encryption protocol (can be processed at the business layer)
 
 ## 1.4. Dependencies and constraints
 
@@ -83,13 +83,13 @@ All identifiers cannot have the 'tars_' symbol and must start with a letter and 
 
 The basic types of support include the following:
 
-Void               : can only be represented in the return value of the function
+void               : can only be represented in the return value of the function
 
-Bool               : Boolean type, mapped to tars::Bool
+bool               : Boolean type, mapped to tars::Bool
 
-Byte               : signed characters, mapped to tars::Char
+byte               : signed characters, mapped to tars::Char
 
-Short               : signed short integer, mapped to tars::Short
+short               : signed short integer, mapped to tars::Short
 
 Int                             : signed integer, mapped to tars::Int32
 
@@ -271,8 +271,6 @@ Module MemCache
         0 require string s;
     };
 
- 
-
     Struct Value
     {
         0 require string s;
@@ -332,17 +330,17 @@ Value | Type | Notes
 
 ### 3.1.3. Detailed description of each type
 
-1. Basic types (including int1, int2, int4, int8, float, double)
+1.Basic types (including int1, int2, int4, int8, float, double)
 
 The header information is followed by the numeric data. Char and bool are also considered integers. There is no distinction between all integer data, that is, a short value can be assigned to an int.
 
-2. Number 0
+2.Number 0
 
 The header information does not follow the data, indicating a value of 0. The value of 0 for all basic types can be represented as such.
 
 This is because the probability of the occurrence of the number 0 is relatively large, so a type is added separately to save space.
 
-3. String (including String1, String4)
+3.String (including String1, String4)
 
 String1 is the length of a byte (the length data does not include header information), followed by the content.
 
@@ -356,11 +354,11 @@ Immediately following an integer data (including header information) indicates t
 
 Immediately followed by an integer data (including header information) indicating the size of the List, followed by a list of elements (Tag is 0)
 
-6. Custom structure begins
+6.Custom structure begins
 
 Custom structure start flag, followed by field data, fields are sorted in ascending order of tags
 
-7. End of custom structure
+7.End of custom structure
 
 Custom structure end flag, Tag is 0
 
@@ -520,55 +518,55 @@ Template<typename T> void get(const string& name, T& t)|Get the attribute value
 Template<typename T> T get(const string& name)|Get the attribute value
 Template<typename T> void getByDefault(const string& name, T& t, const T& def)|Get the attribute value (ignoring the exception, def is the default)
 Template<typename T> T getByDefault(const string& name, const T& def)|Get the attribute value (ignoring the exception, def is the default)
-Void clear()|Clear all attribute values
-Void encode(string& buff)|Encode attribute object to byte stream
-Void encode(vector<char>& buff)|Encode attribute object to byte stream
-Void encode(char* buff, size_t & len)|Encode attribute object to byte stream
-Void decode(const char* buff, size_t len)|decodes the byte stream
-Void decode(const vector<char>& buff)|decodes the byte stream
-Const map<string, vector<char> >& getData() const|Get existing attributes
-Bool isEmpty()|Judge whether the attribute set is empty
-Size_t size()|Get the attribute collection size
-Bool containsKey(const string & key)|Judge whether the attribute exists
+void clear()|Clear all attribute values
+void encode(string& buff)|Encode attribute object to byte stream
+void encode(vector<char>& buff)|Encode attribute object to byte stream
+void encode(char* buff, size_t & len)|Encode attribute object to byte stream
+void decode(const char* buff, size_t len)|decodes the byte stream
+void decode(const vector<char>& buff)|decodes the byte stream
+const map<string, vector<char> >& getData() const|Get existing attributes
+bool isEmpty()|Judge whether the attribute set is empty
+size_t size()|Get the attribute collection size
+bool containsKey(const string & key)|Judge whether the attribute exists
 
 UniPacket class
 
 Public interface |function description
 ------|--------
-Void setVersion(short iVer) |Set protocol version number
+void setVersion(short iVer) |Set protocol version number
 UniPacket createResponse()| generates a response packet through the request packet, and the generation process retrieves the request ID, object name, method name, etc. from the request packet into the response packet.
-Void encode(string& buff)|Encode object to byte stream
-Void encode(vector<char>& buff)|Encode object to byte stream
-Void encode(char* buff, size_t & len)|Encode object to byte stream
-Void decode(const char* buff, size_t len)|Decodes the byte stream, where len is passed into the buffer length and the length of the decoded result is output.
-Tars::Short getVersion() const|Get protocol version number
-Tars::Int32 getRequestId() const|Get the message ID
-Void setRequestId(tars::Int32 value)|Set the request ID
-Const std::string& getServantName() const|Get the object name
-Void setServantName(const std::string& value)|Set the object name (the object name cannot be empty when encoding, otherwise the encoding will fail)
-Const std::string& getFuncName() const|Get method name
-Void setFuncName(const std::string& value)|Set the method name (the method name cannot be empty when encoding, otherwise the encoding will fail)
+void encode(string& buff)|Encode object to byte stream
+void encode(vector<char>& buff)|Encode object to byte stream
+void encode(char* buff, size_t & len)|Encode object to byte stream
+void decode(const char* buff, size_t len)|Decodes the byte stream, where len is passed into the buffer length and the length of the decoded result is output.
+tars::Short getVersion() const|Get protocol version number
+tars::Int32 getRequestId() const|Get the message ID
+void setRequestId(tars::Int32 value)|Set the request ID
+const std::string& getServantName() const|Get the object name
+void setServantName(const std::string& value)|Set the object name (the object name cannot be empty when encoding, otherwise the encoding will fail)
+const std::string& getFuncName() const|Get method name
+void setFuncName(const std::string& value)|Set the method name (the method name cannot be empty when encoding, otherwise the encoding will fail)
 
 TarsUniPacket class
 
 Public interface |function description
 ------|--------
-Void setTarsVersion(tars::Short value) |Set protocol version
-Void setTarsPacketType(tars::Char value)|Set the call type
-Void setTarsMessageType(tars::Int32 value)|Set the message type
-Void setTarsTimeout(tars::Int32 value)|Set timeout
-Void setTarsBuffer(const vector<tars::Char>& value)|Set parameter encoding content
-Void setTarsContext(const map<std::string, std::string>& value)|Set the context
-Void setTarsStatus(const map<std::string, std::string>& value)|Set the state value of the special message
-Tars::Short getTarsVersion() const|Get protocol version
-Tars::Char getTarsPacketType() const|Get the call type
-Tars::Int32 getTarsMessageType() const|Get the message type
-Tars::Int32 getTarsTimeout() const|Get timeout
-Const vector<tars::Char>& getTarsBuffer() const|Get the parameter encoded content
-Const map<std::string, std::string>& getTarsContext() const|Get context
-Const map<std::string, std::string>& getTarsStatus() const|Get the status value of a special message
-Tars::Int32 getTarsResultCode() const|Get the result code of the Tars service processing, 0 is successful, non-zero is failed
-String getTarsResultDesc() const|Get the description of the Tars service processing result
+void setTarsVersion(tars::Short value) |Set protocol version
+void setTarsPacketType(tars::Char value)|Set the call type
+void setTarsMessageType(tars::Int32 value)|Set the message type
+void setTarsTimeout(tars::Int32 value)|Set timeout
+void setTarsBuffer(const vector<tars::Char>& value)|Set parameter encoding content
+void setTarsContext(const map<std::string, std::string>& value)|Set the context
+void setTarsStatus(const map<std::string, std::string>& value)|Set the state value of the special message
+tars::Short getTarsVersion() const|Get protocol version
+tars::Char getTarsPacketType() const|Get the call type
+tars::Int32 getTarsMessageType() const|Get the message type
+tars::Int32 getTarsTimeout() const|Get timeout
+const vector<tars::Char>& getTarsBuffer() const|Get the parameter encoded content
+const map<std::string, std::string>& getTarsContext() const|Get context
+const map<std::string, std::string>& getTarsStatus() const|Get the status value of a special message
+tars::Int32 getTarsResultCode() const|Get the result code of the Tars service processing, 0 is successful, non-zero is failed
+string getTarsResultDesc() const|Get the description of the Tars service processing result
 
 ### 5.1.2. Use caution
 
