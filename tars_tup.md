@@ -3,7 +3,7 @@
 > * [Tars Language] (#main-chapter-2)
 > * [Tars Agreement] (#main-chapter-3)
 > * [TUP use] (#main-chapter-4)
-> * [Introduction to each version of the TUP version] (#main-chapter-5)
+> * [Introduction to each version of the TUP interface] (#main-chapter-5)
 
 # 1. TUP Overview <a id="main-chapter-1"></a>
 
@@ -264,7 +264,7 @@ Description
 
 All structs, interfaces must be in the namespace, for example:
 ```
-Module MemCache
+module MemCache
 {
     struct key
     {
