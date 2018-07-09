@@ -1,4 +1,4 @@
-# table of Contents
+# able of Contents
 > * [TUP Overview] (#main-chapter-1)
 > * [Tars Language] (#main-chapter-2)
 > * [Tars Agreement] (#main-chapter-3)
