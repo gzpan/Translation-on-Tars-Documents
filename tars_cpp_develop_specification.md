@@ -44,15 +44,15 @@ The naming of functions is based on the principle of expressing the action of a 
 
 In addition, there are some general function naming rules.
 
-Take the number with get, then keep up with the name of the object to be fetched;
+Get number start with 'get', then keep up with the name of the object to be fetched;
 
-Set the beginning of the set, and then keep up with the name of the object to be set;
+Setting start with 'set', and then keep up with the name of the object to be set;
 
-The function that responds to the message in the object, starting with on, and then the name of the corresponding message;
+The function that responds to the message in the object, starting with 'on', and then the name of the corresponding message;
 
-The function that performs the active action can be named do, and then the corresponding action name;
+The function that performs the active action can start with 'do', and then the corresponding action name;
 
-Use has or can instead of the is prefix of the boolean get function, the meaning is more clear.
+Use 'has' or 'can' instead of the 'is' prefix of the boolean get function, the meaning is more clear.
 
 E.g:
 ```
