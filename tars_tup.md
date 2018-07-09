@@ -152,7 +152,7 @@ struct Test
     1 optional int i = 23;
 };
 
-Key[Test, s, i];
+key[Test, s, i];
 ```
 Description:
 
@@ -194,7 +194,7 @@ other instructions:
 
 The sequence is defined by vector as follows:
 ```
-Vector<int> vi;
+vector<int> vi;
 ```
 ### 2.4.5. Dictionary
 
@@ -467,7 +467,7 @@ setTarsPacketType(); package type version, TUP defaults to 3
 ```
 For a specific remote interface call, you only need to assign the input parameters through the put interface. The property name is the parameter name defined by the tars interface, for example, for the interface:
 ```
-Int testFunc(string inputString, int inputInt, out string outputString);
+int testFunc(string inputString, int inputInt, out string outputString);
 ```
 The way to enter parameter assignments is:
 ```
