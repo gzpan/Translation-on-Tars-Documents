@@ -73,7 +73,7 @@ Use the C++ annotation specification.
 ```
 ### 2.2.2. Keywords
 ```
-Void,struct,bool,byte,short,int,double,float,long,string,vector,map,key,routekey,module,interface,out,require,optional,false,true,enum,const
+void,struct,bool,byte,short,int,double,float,long,string,vector,map,key,routekey,module,interface,out,require,optional,false,true,enum,const
 ```
 ### 2.2.3. Identifier
 
@@ -83,29 +83,29 @@ All identifiers cannot have the 'tars_' symbol and must start with a letter and 
 
 The basic types of support include the following:
 
-void               : can only be represented in the return value of the function
+void :can only be represented in the return value of the function
 
-bool               : Boolean type, mapped to tars::Bool
+bool :boolean type, mapped to tars::Bool
 
-byte               : signed characters, mapped to tars::Char
+byte :signed characters, mapped to tars::Char
 
-short               : signed short integer, mapped to tars::Short
+short :signed short integer, mapped to tars::Short
 
-Int                             : signed integer, mapped to tars::Int32
+int :signed integer, mapped to tars::Int32
 
-Long               : signed long integer, mapped to tars::Int64
+long :signed long integer, mapped to tars::Int64
 
-Flo               : Map to tars::Float
+float :Map to tars::Float
 
-Double               : Map to tars::Double
+double :Map to tars::Double
 
-String               : Map to std::string, java:String
+string :Map to std::string, java:String
 
-Unsigned byte : unsigned character, c++ mapped to unsigend char other versions tars::Short
+unsigned byte :unsigned character, c++ mapped to unsigend char other versions tars::Short
 
-Unsigned short: unsigned short integer c++ mapped to unsigned short other versions tars::Int32
+unsigned short :unsigned short integer c++ mapped to unsigned short other versions tars::Int32
 
-Unsigned int: unsigned integer c++ mapped to unsigned int other versions tars::Int64
+unsigned int :unsigned integer c++ mapped to unsigned int other versions tars::Int64
 
 ## 2.4. Complex types
 
@@ -113,7 +113,7 @@ Unsigned int: unsigned integer c++ mapped to unsigned int other versions tars::I
 
 The definition of the enumerated type is as follows:
 ```
-Enum TE
+enum TE
 {
     E1,
     E2,
@@ -134,9 +134,9 @@ Description:
 
 Constants can be defined in the Tars file, for example:
 ```
-Const int a = 0;
+const int a = 0;
 
-Const string s = "abc";
+const string s = "abc";
 ```
 Description:
 
@@ -146,7 +146,7 @@ Description:
 
 The structure is defined as follows:
 ```
-Struct Test
+struct Test
 {
     0 require string s;
     1 optional int i = 23;
@@ -200,7 +200,7 @@ Vector<int> vi;
 
 The dictionary is defined by map as follows:
 ```
-Map<int, string> m;
+map<int, string> m;
 ```
 Description:
 
@@ -212,7 +212,7 @@ Description:
 
 The array type can be defined in the structure, and the array is defined by [], as follows:
 ```
-Byte m[5];
+byte m[5];
 ```
 Description:
 
@@ -228,7 +228,7 @@ Description:
 
 The byte pointer type can be defined in the structure, and the pointer is defined by *, as follows:
 ```
-Byte *m;
+byte *m;
 ```
 When the pointer type is used, the memory block needs to be pre-allocated in advance. When the pointer needs memory, it points to the pre-allocated memory block by offset, which reduces the memory application during decoding.
 
@@ -250,10 +250,10 @@ Any struct, map, or vector can be nested;
 
 The interface is defined as follows, for example:
 ```
-Interface Demo
+interface Demo
 {
-    Int get(out vector<map<int, string>> v);
-    Int set(vector<map<int, string>> v);
+    int get(out vector<map<int, string>> v);
+    int set(vector<map<int, string>> v);
 };
 ```
 Description
@@ -266,20 +266,20 @@ All structs, interfaces must be in the namespace, for example:
 ```
 Module MemCache
 {
-    Struct key
+    struct key
     {
         0 require string s;
     };
 
-    Struct Value
+    struct Value
     {
         0 require string s;
     };
 
-    Interface MemCacheI
+    interface MemCacheI
     {
-        Int get(Key k, out Value v);
-        Int set(Key k, Value v);
+        int get(Key k, out Value v);
+        int set(Key k, Value v);
     };
 };
 ```
@@ -368,13 +368,13 @@ Persistence for custom structures is identified by a start and end flags.
 
 For example, the following structure definition:
 ```
-Struct TestInfo
+struct TestInfo
 {
     1 require int ii = 34;
     2 optional string s = "abc";
 };
 
-Struct TestInfo2
+struct TestInfo2
 {
     1 require TestInfo t;
     2 require int a = 12345;
@@ -391,7 +391,7 @@ The underlying TUP protocol is completely defined by Tars, which is consistent w
 ### 3.2.1. Request package
 ```
 / / Request the package body
-Struct RequestPacket
+struct RequestPacket
 {
     1 require short iVersion; //version number
     2 optional byte cPacketType; //package type
@@ -408,7 +408,7 @@ Struct RequestPacket
 ### 3.2.2. Response package
 ```
 / / Response body
-Struct ResponsePacket
+struct ResponsePacket
 {
     1 require short iVersion; //version number
     2 optional byte cPacketType; //package type
@@ -421,21 +421,21 @@ Struct ResponsePacket
 };
 
 //return value
-Const int TAFSERVERSUCCESS = 0; //Server side processing succeeded
-Const int TAFSERVERDECODEERR = -1; //Server-side decoding exception
-Const int TAFSERVERENCODEERR = -2; //Server-side encoding exception
-Const int TAFSERVERNOFUNCERR = -3; //There is no such function on the server side
-Const int TAFSERVERNOSERVANTERR = -4; //The server does not have the Servant object
-Const int TAFSERVERRESETGRID = -5; // server grayscale state is inconsistent
-Const int TAFSERVERQUEUETIMEOUT = -6; // server queue exceeds limit
-Const int TAFASYNCCALLTIMEOUT = -7; // Asynchronous call timeout
-Const int TAFINVOKETIMEOUT = -7; //call timeout
-Const int TAFPROXYCONNECTERR = -8; //proxy link exception
-Const int TAFSERVEROVERLOAD = -9; //Server overload, exceeding queue length
-Const int TAFADAPTERNULL = -10; //The client routing is empty, the service does not exist or all services are down.
-Const int TAFINVOKEBYINVALIDESET = -11; //The client is illegally called by the set rule
-Const int TAFCLIENTDECODEERR = -12; //Client decoding exception
-Const int TAFSERVERUNKNOWNERR = -99; //The server is in an abnormal position
+const int TAFSERVERSUCCESS = 0; //Server side processing succeeded
+const int TAFSERVERDECODEERR = -1; //Server-side decoding exception
+const int TAFSERVERENCODEERR = -2; //Server-side encoding exception
+const int TAFSERVERNOFUNCERR = -3; //There is no such function on the server side
+const int TAFSERVERNOSERVANTERR = -4; //The server does not have the Servant object
+const int TAFSERVERRESETGRID = -5; // server grayscale state is inconsistent
+const int TAFSERVERQUEUETIMEOUT = -6; // server queue exceeds limit
+const int TAFASYNCCALLTIMEOUT = -7; // Asynchronous call timeout
+const int TAFINVOKETIMEOUT = -7; //call timeout
+const int TAFPROXYCONNECTERR = -8; //proxy link exception
+const int TAFSERVEROVERLOAD = -9; //Server overload, exceeding queue length
+const int TAFADAPTERNULL = -10; //The client routing is empty, the service does not exist or all services are down.
+const int TAFINVOKEBYINVALIDESET = -11; //The client is illegally called by the set rule
+const int TAFCLIENTDECODEERR = -12; //Client decoding exception
+const int TAFSERVERUNKNOWNERR = -99; //The server is in an abnormal position
 ```
 # 4. TUP uses <a id="main-chapter-4"></a>
 
@@ -449,13 +449,13 @@ Const int TAFSERVERUNKNOWNERR = -99; //The server is in an abnormal position
 
 2.UniAttribute: attribute class, the user may be performed by the object class operation, add properties and get property, class provides a put / get generic interface, can achieve encoding and decoding. The encoded serialized byte stream can be used for compression, encryption, network transmission or persistent storage, deserializing the original object when needed.
 
-3. UniPacket: Request response packet class, inherited from UniAttribute, you can add the requested attribute value, set the remote object and method name to be requested, and send it to the server after encoding. After decoding, the server can obtain the attribute parameter for processing. After the server processes the request, the result is also returned by the object of the class, and the client decodes and obtains the processing result.
+3.UniPacket: Request response packet class, inherited from UniAttribute, you can add the requested attribute value, set the remote object and method name to be requested, and send it to the server after encoding. After decoding, the server can obtain the attribute parameter for processing. After the server processes the request, the result is also returned by the object of the class, and the client decodes and obtains the processing result.
 
 4.TarsUniPacket: Tars request response packet class, inherited from UniPacket, used when calling Tars remote service. After adding attributes and setting related attributes, the user encodes the request packets and sends them to the Tars service for processing. The Tars server receives the request of the TUP protocol, and returns the packet to the client after returning the packet with the object group of the class. After the client receives the packet, the class is used for decoding processing to obtain the result.
 
 ## 4.3. Calling the Tars service using the TUP protocol
 
-1. When the client calls, the TarsUniPacket object is used to perform parameter setting of the request packet and input parameter assignment. The request parameter information that must be specified includes:
+1.When the client calls, the TarsUniPacket object is used to perform parameter setting of the request packet and input parameter assignment. The request parameter information that must be specified includes:
 ```
 setRequestId(); set the message id, increment
 
@@ -473,17 +473,17 @@ The way to enter parameter assignments is:
 ```
 TarsUniPacket<> req;
 
-Req.put<string>("inputString", "testInput");
+req.put<string>("inputString", "testInput");
 
-Req.put<Int32>("inputInt", 12345);
+req.put<Int32>("inputInt", 12345);
 
-Req.encode(buff);
+req.encode(buff);
 ```
 The TarsUniPacket object must set the property value for each input parameter defined by tars. Otherwise, the server will return an exception error that lacks a certain property value when processing the request. The output parameter can also be used as input, but it is not required.
 
 The template type of the put interface is the corresponding type defined by the tars parameter, except for the enumeration type. Int32 is used as the template type to assign the attribute value.
 
-2. The TUP return packet is also decoded using the TarsUniPacket object. After decoding, the getTarsResultCode() interface is used to obtain the processing result of the tars service. 0 is successful, non-zero is failed, and the cause of the failure can be obtained through the getTarsResultDesc() interface.
+2.The TUP return packet is also decoded using the TarsUniPacket object. After decoding, the getTarsResultCode() interface is used to obtain the processing result of the tars service. 0 is successful, non-zero is failed, and the cause of the failure can be obtained through the getTarsResultDesc() interface.
 
 The output parameters of the returned successful result packet are obtained by using the output parameter name defined by tars as the attribute name, and the return value of the interface is obtained by using the attribute name of the empty string.
 
@@ -491,9 +491,9 @@ The way the interface returns the result is as follows:
 ```
 TarsUniPacket<> rsp;
 
-Rsp.decode(recvBuff, recvLen);
+rsp.decode(recvBuff, recvLen);
 
-If(rsp.getTarsResultCode() == 0)
+if(rsp.getTarsResultCode() == 0)
 {
     int ret = rsp.get<int32_t>("");                                                                     / / Get the return value
     string retString = rsp.get<string>("outputString"); //Get the output parameters
@@ -513,11 +513,11 @@ UniAttribute class
 
 Public interface |function description
 ------|--------
-Template<typename T> void put(const string& name, const T& t) |Add attribute values
-Template<typename T> void get(const string& name, T& t)|Get the attribute value
-Template<typename T> T get(const string& name)|Get the attribute value
-Template<typename T> void getByDefault(const string& name, T& t, const T& def)|Get the attribute value (ignoring the exception, def is the default)
-Template<typename T> T getByDefault(const string& name, const T& def)|Get the attribute value (ignoring the exception, def is the default)
+template<typename T> void put(const string& name, const T& t) |Add attribute values
+template<typename T> void get(const string& name, T& t)|Get the attribute value
+template<typename T> T get(const string& name)|Get the attribute value
+template<typename T> void getByDefault(const string& name, T& t, const T& def)|Get the attribute value (ignoring the exception, def is the default)
+template<typename T> T getByDefault(const string& name, const T& def)|Get the attribute value (ignoring the exception, def is the default)
 void clear()|Clear all attribute values
 void encode(string& buff)|Encode attribute object to byte stream
 void encode(vector<char>& buff)|Encode attribute object to byte stream
