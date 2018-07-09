@@ -45,7 +45,7 @@ TUP (short for Tars Uni-Protocol), the Tars unified protocol, is a package based
 
 5.It is not recommended to get/put too much data. If there is more data, it is recommended to form a struct in the tars file and then put/get into UniPacket to improve efficiency and reduce network packet size.
 
-6.The result of UniPacket encoding includes the packet length information of the 4-byte network byte order in the packet header, and the length includes the packet header. After receiving the packet, the receiver needs to judge the packet length according to the content of the packet header to ensure that the packet is complete and transmitted. Decode to the decoding interface (no need to remove the header)
+6.The result of UniPacket encoding includes the packet length information of the 4-byte network byte order in the packet header, and the length includes the packet header. After receiving the packet, the receiver needs to judge the packet length according to the content of the packet header. Finally confirmed that the packet is complete and transmitted, we introduce the decoding interface to decode the packet.
 
 7.Tars c++ language string type interface can not contain binary data, binary data is transmitted with vector<char>
 
