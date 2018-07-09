@@ -33,20 +33,20 @@ The core process is as follows:
 
 The deployment of a service A (A1, A2, A3, A4, A5, A6, A7) in each region is shown in the figure above.
 
-The main service B (ip: 172.27.206.111) calls the A service, which can be called to: A3
+The caller service B (ip: 172.27.206.111) calls the A service, which can be called to: A3
 
-The main call service C calls the A service, which can be called to: A3, A4, A5
+The caller call service C calls the A service, which can be called to: A3, A4, A5
 
-When the main service C calls the A service, A3, A4, and A5 are stopped. The calls that can be called are: A2
+When the caller service C calls the A service, A3, A4, and A5 are stopped. The calls that can be called are: A2
 
-When the main service C calls the A service, A3, A4, A5, and A2 are stopped. The ones that can be called are: A1, A7
+When the caller service C calls the A service, A3, A4, A5, and A2 are stopped. The ones that can be called are: A1, A7
 
-When the main service C calls the A service, A3, A4, A5, A2, A1, and A7 are all stopped. The ones that can be called are: A6.
+When the caller service C calls the A service, A3, A4, A5, A2, A1, and A7 are all stopped. The ones that can be called are: A6.
 
 Description
-> * The origin of the keynote has determined the physical and logical groups of the keynote.
-> * The adjusted origin can be modified and will affect the list of activities called by the main call.
-> * Whether IDC grouping is enabled depends entirely on the tune! ! !
+> * The origin of the caller has determined the physical and logical groups of the keynote.
+> * The callee can be modified and will affect the list of activities called by the caller.
+> * Whether IDC grouping is enabled depends entirely on the callee! ! !
 
 # 2. Set group logic introduction <a id="main-chapter-2"></a>
 
