@@ -82,19 +82,19 @@ APP |SZ |\*(wildcard) |C,E,D
 APP |SH |1 |A,B,C
 APP |SH |2 |A,B,C
 
-1.A service calls B and C services, and three services exist in both 1, 2 Set packets. If the B service in 1 dies, A will not call the B service in 2, and will not call SH. Any B service in the middle, but directly return an empty set to A, because it is not in the same SET.
+1.A service calls B and C services, and three services exist in both 1, 2 Set packets. If the B service in 1 dies, A will not call the B service in 2, and will not call any B services in SH. Instead, it returns empty set to A  because they are not in the same SET.
 
-2.For the C service exists in both the 1,2Set group and the wildcard group in the SZ area. If the C in 1 is dead, neither the C in the SZ area nor the C in the SZ area will be called. C in 2, the same as the F service, the A service in 1 will never call the F service in the wildcard group.
+2.For the C service exists in both the 1, 2 Set group and the wildcard group in the SZ area, if the C in 1 is dead, neither the C in the SZ area nor the C in the SZ area will be called. C in 2. The same as the F service, the A service in 1 will never call the F service in the wildcard group.
 
-3.and for the A service in 2, the F service in the wildcard group can be called.
+3.And for the A service in 2, the F service in the wildcard group can be called.
 
 4.D service can call any C service in SZ (including wildcard group and specific SET service group)
 
 5.For E services, C directly calls the E service in the wildcard group.
 
-Call the general principle:
-> * 1.Both parties must be enabled with SET grouping, and the SET full name must be the same.
-> * 2.There is a call in the SET (regardless of death and death), you can only call this SET. If it is not adjusted (it is also counted as dead), it can only call the public area of ​​the local area. If it is not yet, the SET cannot be called according to the IDC grouping principle. 1A->1C, 1A cannot->*C, 1A->1F, 1A cannot->*F, 2A->*F, C->E
+General principle of the call service:
+> * 1.Both caller and callee must be enabled with SET grouping, and the SET full name must be the same.
+> * 2.There is a callee in the SET (regardless of death and death), you can only call it in this SET. If there is no callee (it is also counted as dead), you can only call it in the public area of the local district. If it is not yet, you can only call the callee in the unenabled SET according to the IDC grouping principle. 1A->1C, 1A cannot->*C, 1A->1F, 1A cannot->*F, 2A->*F, C->E
 > * 3.The wildcard group service can call any service in the SET and the wildcard group *D->*C+1C+2C
 > * 4.If 1 is not met, it is called according to the IDC packet logic.
 
