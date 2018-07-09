@@ -20,12 +20,12 @@ The main key will periodically take the adjusted Obj list information from the m
 
 The core process is as follows:
 
-> * 1. First retrieve all the "active list" and "inactive list" of the service from the database.
-> * 2. According to the client IP, the physical group of the caller is obtained, assuming GROUP_A
-> * 3. Traverse the "activity list" and retrieve all IPs belonging to GROUP_A. If found, return these IPs to the client and exit; otherwise proceed to step 4.
-> * 4. Traverse all logical groups according to the priority defined by t_group_priority. If the active IP is found in a logical group, these IPs are returned to the client and exited; otherwise, the next logical group is found, and if the active IP is still not found in all logical groups, then step 5 is performed.
-> * 5. Traversing the "activity list" will belong to the group "-1", that is, the IP without the startup packet will be retrieved. If found, feed these IPs back to the user. If not found, proceed to step 6.
-> * 6. Return the "activity list" retrieved from the database directly.
+> * 1.First retrieve all the "active list" and "inactive list" of the service from the database.
+> * 2.According to the client IP, the physical group of the caller is obtained, assuming GROUP_A
+> * 3.Traverse the "activity list" and retrieve all IPs belonging to GROUP_A. If found, return these IPs to the client and exit; otherwise proceed to step 4.
+> * 4.Traverse all logical groups according to the priority defined by t_group_priority. If the active IP is found in a logical group, these IPs are returned to the client and exited; otherwise, the next logical group is found, and if the active IP is still not found in all logical groups, then step 5 is performed.
+> * 5.Traversing the "activity list" will belong to the group "-1", that is, the IP without the startup packet will be retrieved. If found, feed these IPs back to the user. If not found, proceed to step 6.
+> * 6.Return the "activity list" retrieved from the database directly.
 
 ## 1.4. Example
 
@@ -93,10 +93,10 @@ APP |SH |2 |A,B,C
 5.For E services, C directly calls the E service in the wildcard group.
 
 Call the general principle:
-> * 1. Both parties must be enabled with SET grouping, and the SET full name must be the same.
-> * 2. There is a call in the SET (regardless of death and death), you can only call this SET. If it is not adjusted (it is also counted as dead), it can only call the public area of ​​the local area. If it is not yet, the SET cannot be called according to the IDC grouping principle. 1A->1C, 1A cannot->*C, 1A->1F, 1A cannot->*F, 2A->*F, C->E
-> * 3. The wildcard group service can call any service in the SET and the wildcard group *D->*C+1C+2C
-> * 4. If 1 is not met, it is called according to the IDC packet logic.
+> * 1.Both parties must be enabled with SET grouping, and the SET full name must be the same.
+> * 2.There is a call in the SET (regardless of death and death), you can only call this SET. If it is not adjusted (it is also counted as dead), it can only call the public area of ​​the local area. If it is not yet, the SET cannot be called according to the IDC grouping principle. 1A->1C, 1A cannot->*C, 1A->1F, 1A cannot->*F, 2A->*F, C->E
+> * 3.The wildcard group service can call any service in the SET and the wildcard group *D->*C+1C+2C
+> * 4.If 1 is not met, it is called according to the IDC packet logic.
 
 # 3. Calling rules for IDC grouping and Set grouping <a id="main-chapter-3"></a>
 
