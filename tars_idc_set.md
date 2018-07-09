@@ -3,7 +3,7 @@
 > * [Introduction to Set grouping logic] (#main-chapter-2)
 > * [Invocation rules for IDC group and Set group] (#main-chapter-3)
 
-# 1. IDC Grouping Logic Introduction <a id="main-chapter-1"></a>
+# 1. IDC grouping logic introduction <a id="main-chapter-1"></a>
 
 ## 1.1. Meaning of the IDC group
 
@@ -48,9 +48,9 @@ Description
 > * The callee can be modified and will affect the list of activities called by the caller.
 > * Whether IDC grouping is enabled depends entirely on the callee! ! !
 
-# 2. Set group logic introduction <a id="main-chapter-2"></a>
+# 2. Set grouping logic introduction <a id="main-chapter-2"></a>
 
-## 2.1. The meaning of the Set group
+## 2.1. The meaning of the Set grouping
 
 > * Set Name: Define a large Set name, which can be defined by the business name.
 > * Set area: It can be divided according to the region, such as n, b (North and South), or by city, such as sh (Shanghai), sz (Shenzhen).
