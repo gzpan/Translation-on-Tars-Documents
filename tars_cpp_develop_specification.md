@@ -1,4 +1,4 @@
-# table of Contents
+# Table of Contents
 > * Naming convention
 > * Tars File Directory Specification
 > * Makefile specification
