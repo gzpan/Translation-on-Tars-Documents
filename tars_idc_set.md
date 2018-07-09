@@ -7,7 +7,7 @@
 
 ## 1.1. Meaning of the IDC group
 
-> * According to the first three segments of the IP address, which specific computer room belongs to.
+> * According to the first three segments of the IP address to decide which specific computer room belongs to.
 > * The information of which group the called service belongs to can be modified. If it is not specified, it will be matched according to the rules of the IP segment.
 
 ## 1.2. Change of group information
