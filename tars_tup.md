@@ -166,11 +166,11 @@ Description:
 
 > * For the optional field, there can be a default value, the default value is not packaged by default when encoding;
 
-Key description:
+'key' description:
 
 > * Indicates the '<' symbol. By default, Struct does not support the '<' operation. If the key is defined, it will generate '<' symbol.
 
-Key details:
+'key' details:
 
 > * key[Stuct, member...]:
 
