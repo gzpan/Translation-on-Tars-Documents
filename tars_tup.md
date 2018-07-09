@@ -1,7 +1,7 @@
 # Table of Contents
 > * [TUP Overview] (#main-chapter-1)
 > * [Tars Language] (#main-chapter-2)
-> * [Tars Agreement] (#main-chapter-3)
+> * [Tars Protocol] (#main-chapter-3)
 > * [TUP use] (#main-chapter-4)
 > * [Introduction to each version of the TUP interface] (#main-chapter-5)
 
@@ -287,7 +287,7 @@ Description:
 > * Namespaces cannot be nested;
 > * Can reference other namespaces, for example: Demo1::Key
 
-# 3. Tars Agreement <a id="main-chapter-3"></a>
+# 3. Tars Protocol <a id="main-chapter-3"></a>
 
 ## 3.1. Data Encoding
 
