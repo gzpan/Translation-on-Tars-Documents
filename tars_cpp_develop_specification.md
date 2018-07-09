@@ -142,14 +142,14 @@ The Makefile for Test.HelloServer is as follows:
 ```
 #------------------------------------------------- ----------------------
 
-APP := TestApp
-TARGET := HelloServer
-CONFIG := HelloServer.conf
-STRIP_FLAG := N
-TARS2CPP_FLAG :=
+APP            := TestApp
+TARGET         := HelloServer
+CONFIG         := HelloServer.conf
+STRIP_FLAG     := N
+TARS2CPP_FLAG  :=
 
-INCLUDE +=
-LIB +=
+INCLUDE        +=
+LIB            +=
 
 #------------------------------------------------- ----------------------
 
