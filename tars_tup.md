@@ -156,7 +156,7 @@ key[Test, s, i];
 ```
 Description:
 
-> * The first column of numbers indicates the identifier of the field. Regardless of the structure increase or decrease field, the value of the field does not change and must correspond to the response field.
+> * The first column of numbers indicates the tag of the field. Regardless of the structure increase or decrease field, the value of the field does not change and must correspond to the response field.
 
 > * The value of Tag must be >=0 and <=255;
 
