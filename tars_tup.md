@@ -55,7 +55,7 @@ TUP (short for Tars Uni-Protocol), the Tars unified protocol, is a package based
 
 The Tars language is a C++-like identifier language used to generate specific service interface files.
 
-The Tars file is the communication interface between the client and the server in the Tars framework, and the remote object is called through the mapping of Tars.
+The Tars file is the communication interface between the client and the server in the Tars framework, and realizes the remote procedure call through the mapping of Tars.
 
 Tars file extension must have a .tars extension
 
