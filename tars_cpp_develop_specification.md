@@ -15,7 +15,7 @@ Servant: A service provider that provides an interface or instance of a specific
 
 Description:
 
-A Server can contain multiple Servant, the system will use the service's App + Server + Servant, combined to define the routing name of the service in the system, called routing Obj, its name must be unique in the whole system, so that When you serve externally, you can uniquely identify yourself.
+A Server can contain multiple Servant, the system will use the service's App + Server + Servant, combined to define the routing name of the service in the system, called routing Obj, its name must be unique in the whole system, so that when you serve externally, you can uniquely identify yourself.
 
 Therefore, when defining an APP, you need to pay attention to the uniqueness of the APP.
 
@@ -73,11 +73,11 @@ sendMessage();
 
 ## 1.5. Variable naming rules
 
-For the definition of various variables, there is one thing in common, that is, you should use meaningful English words or English word abbreviations, do not use simple meaningless strings, try not to use Arabic numerals, and should not use Chinese Pinyin. Initials.
+For the definition of various variables, there is one thing in common, that is, you should use meaningful English words or English word abbreviations, do not use simple meaningless strings, try not to use Arabic numerals, and should not use the initial of Chinese Pinyin.
 
 Names like this are not recommended: Value1, Value2, Value3, Value4....
 
-The general rule is: lowercase letters begin with the first letter of each word in the back, usually a noun. (if there is only one word, lowercase)
+The general rule is: lowercase letters begin, followed by each word whose first letter is uppercase, usually a noun. (if there is only one word, lowercase)
 
 userNo (mobile number), station (province), destNo (destination number), srcNo (source number), etc.
 
@@ -99,15 +99,15 @@ When using other server tars files, you need to use them in /home/tarsproto, you
 
 The tars interface can only be added in principle and cannot be reduced or modified.
 
-Run make release inside the makefile will automatically complete the relevant operations, see the Makefile specification;
+Run 'make release' inside the makefile will automatically complete the relevant operations, see the Makefile specification;
 
 Description:
 
-Make release will copy the tars file to /home/tarsproto/[namespace]/[server] directory, generate tars2cpp to generate .h, and generate a [server].mk file; other calls to the service, at the bottom of the makefile This mk file can be included.
+'make release' will copy the tars file to /home/tarsproto/[namespace]/[server] directory, generate tars2cpp to generate .h, and generate a [server].mk file; When others call this service, include this mk file at the bottom of the makefile.
 
 # 3. Makefile specification
 
-It is highly recommended to use the Makefile specification for services implemented using Tars.
+It is highly recommended to use the Makefile specification when use service that realized with Tars.
 
 The TARS framework provides a basic Makefile for makefile.tars. The service written in Tars contains the Makefile to help you maintain the Makefile.
 
@@ -156,7 +156,7 @@ LIB            +=
 Include /home/tarsproto/TestApp/HelloServer/HelloServer.mk
 Include /usr/local/tars/cpp/makefile/makefile.tars
 ```
-The key variables are usually not used, but the business can add its own values ​​after these variables:
+The key variables are usually not used, but the business can add its own values after these variables:
 ```
 RELEASE_TARS: You need to publish the tars file in the /home/tarsproto/ directory. If you need to publish your own .h to /home/tarsproto, you can do the following:
 RELEASE_TARS += xxx.h
