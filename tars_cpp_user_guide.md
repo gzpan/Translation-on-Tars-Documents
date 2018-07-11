@@ -2,27 +2,27 @@
 
 Currently, the tars protocol limits the size of data packets.
 
-The communicator (client) has no limit on the size of the outgoing packet, and there is a limit on the received packet. The default is 10000000 bytes (close to 10M).
+The communicator (client) has no limit on the size of the delivered packet, and there is a limit on the received packet. The default is 10000000 bytes (close to 10M).
 
-The server has no restrictions on the packets sent, and has a size limit on the received packets. The default is 100000000 bytes (close to 100M).
+The server has no restrictions on the delivered packets , and has a size limit on the received packets. The default is 100000000 bytes (close to 100M).
 
 ## 5.1. Modify the client receiving packet size
 Modify the size of the packet by modifying the tars_set_protocol of ServantProxy.
 ```cpp
 ProxyProtocol prot;
 prot.responseFunc = ProxyProtocol::tarsResponseLen<100000000>;
-prot.requestFunc = ProxyProtocol::tarsRequest;
+prot.requestFunc  = ProxyProtocol::tarsRequest;
 ccserverPrx -> tars_set_protocol(prot);
 ```
 100000000 represents the size of the limit, in bytes.
 
 ccserverPrx is globally unique, just set it once.
 
-In order to write code is convenient, it is recommended to set it once in the initialization of the business thread .
+In order to write codes conveniently, it is recommended to set it once in the initialization of the business thread .
 
-To call stringToProxy first and then set it.
+First call stringToProxy and then set it.
 ```cpp
-prot.requestFunc = ProxyProtocol::tarsRequest //Must have, the default is not this function.
+prot.requestFunc = ProxyProtocol::tarsRequest //Must exist, the default is not this function.
 ```
 If it is called in tup mode. Set len
 ```cpp
