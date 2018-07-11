@@ -1,27 +1,27 @@
 # 6. Tars defined return code
 ```
-/ / Define the return code given by the TARS service
-const int TARSSERVERSUCCESS       = 0; //Server-side processing succeeded
-const int TARSSERVERDECODEERR     = -1; //Server-side decoding exception
-const int TARSSERVERENCODEERR     = -2; //Server-side encoding exception
-const int TARSSERVERNOFUNCERR     = -3; //There is no such function on the server side
-const int TARSSERVERNOSERVANTERR  = -4; //The server does not have the Servant object
-const int TARSSERVERRESETGRID     = -5; // server grayscale state is inconsistent
-const int TARSSERVERQUEUETIMEOUT  = -6; //server queue exceeds limit
-const int TARSASYNCCALLTIMEOUT    = -7; // Asynchronous call timeout
-const int TARSINVOKETIMEOUT       = -7; //call timeout
-const int TARSPROXYCONNECTERR     = -8; //proxy link exception
-const int TARSSERVEROVERLOAD      = -9; //Server overload, exceeding queue length
-const int TARSADAPTERNULL         = -10; //The client routing is empty, the service does not exist or all services are down.
-const int TARSINVOKEBYINVALIDESET = -11; //The client calls the set rule illegally
-const int TARSCLIENTDECODEERR     = -12; //Client decoding exception
-const int TARSSERVERUNKNOWNERR    = -99; //The server is in an abnormal position
+//Define the return code given by the TARS service
+const int TARSSERVERSUCCESS       = 0;    //Server-side processing succeeded
+const int TARSSERVERDECODEERR     = -1;   //Server-side decoding exception
+const int TARSSERVERENCODEERR     = -2;   //Server-side encoding exception
+const int TARSSERVERNOFUNCERR     = -3;   //There is no such function on the server side
+const int TARSSERVERNOSERVANTERR  = -4;   //The server does not have the Servant object
+const int TARSSERVERRESETGRID     = -5;   // server grayscale state is inconsistent
+const int TARSSERVERQUEUETIMEOUT  = -6;   //server queue exceeds limit
+const int TARSASYNCCALLTIMEOUT    = -7;   // Asynchronous call timeout
+const int TARSINVOKETIMEOUT       = -7;   //call timeout
+const int TARSPROXYCONNECTERR     = -8;   //proxy link exception
+const int TARSSERVEROVERLOAD      = -9;   //Server overload, exceeding queue length
+const int TARSADAPTERNULL         = -10;  //The client routing is empty, the service does not exist or all services are down.
+const int TARSINVOKEBYINVALIDESET = -11;  //The client calls the set rule illegally
+const int TARSCLIENTDECODEERR     = -12;  //Client decoding exception
+const int TARSSERVERUNKNOWNERR    = -99;  //The server is in an abnormal position
 ```
 
 # 7. Business Configuration
 The Tars service framework provides the ability to pull the configuration of a service from tarsconfig to a local directory.
 
-The method of use is very simple. In the initialize of the server, call addConfig to pull the configuration file.
+The method of use is very simple. In the initialize of the Server, call addConfig to pull the configuration file.
 
 Take HelloServer as an example:
 ```
@@ -38,14 +38,14 @@ Description:
 > * HelloServer.conf configuration file can be configured on the web management platform;
 > * After HelloServer.conf is pulled to the local, the absolute path of the configuration file can be indicated by ServerConfig::BasePath + "HelloServer.conf";
 > * The configuration file management is on the web management platform, and the web management platform can actively push the configuration file to the server;
-> * The configuration center supports ip level configuration, that is, a service is deployed on multiple services, only partially different (related to IP). In this case, the configuration center can support the merging of configuration files and support viewing on the web management platform. And modification;
+> * The configuration center supports ip level configuration, that is, a service is deployed on multiple services, only partially different (related to IP). In this case, the configuration center can support the merging of configuration files and support viewing on the web management platform as well as modification;
 
-note:
+Note:
 > * For services that are not released to the management platform, you need to specify the address of Config in the service configuration file, otherwise you cannot use remote configuration.
 
 # 8. Log
 
-The Tars Service Framework provides a macro definition method for logging the system's rolling log/by-day logs. These macros are thread-safe and can be used at will.
+The Tars Service Framework provides a macro definition method for logging the system's rolling logs/by-day logs. These macros are thread-safe and can be used at will.
 
 ## 8.1. TLOGXXX Description
 
@@ -86,7 +86,7 @@ TLOGXXX is a macro, which is defined as follows:
 ```
 
 The type returned by TarsRollLogger::getInstance()->logger() is TC_RollLogger*, so you can set the LOG through it, for example:
-Set to Info level:
+set to Info level:
 ```cpp
 TarsRollLogger::getInstance()->logger()->setLogLevel(TC_RollLogger::INFO_LOG);
 ```
@@ -103,9 +103,9 @@ Can be used as follows:
 print(LOG->debug());
 ```
 
-## 8.2.               DLOG/FDLOG
+## 8.2. DLOG/FDLOG
 
-Used to record daily logs, so-called daily logs, mainly used to record important business information;
+Used to record daily logs, so-called by-day logs, mainly used to record important business information;
 > * DLOG is the default button log, FDLOG can specify the file name of the log file;
 > * DLOG/FDLOG logs will be automatically uploaded to tarslog, which can be set to not be uploaded to tarslog;
 > * DLOG/FDLOG can modify the scrolling time, such as by minute, hour, etc.
@@ -113,7 +113,7 @@ Used to record daily logs, so-called daily logs, mainly used to record important
 > * DLOG/FDLOG can be set to not be recorded locally, only uploaded to the remote;
 > * #include "servant/TarsLogger.h" is required in the place of use
 
-## 8.3.               Code example
+## 8.3. Code example
 ```cpp
 CommunicatorPtr c = new Communicator();
 
@@ -142,7 +142,7 @@ TarsTimeLogger::getInstance()->initFormat("abc2", "%Y%m%d%H");
 //abc3 file does not remember local
 TarsTimeLogger::getInstance()->enableLocal("abc3", false);
 
-Int i = 100000;
+int i = 100000;
 while(i--)
 {
       //Same as the previous one
